@@ -1,0 +1,13 @@
+sequenceDiagram
+    %% Scenario 6 User submits requirements via the application
+    autonumber
+    actor User
+    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
+    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
+    User    ->>+    ClassUI : submit_assignment()
+    ClassUI -->>    User    : request confirmation
+    User    -->>    ClassUI : confirm
+    ClassUI ->>+    LearnC  : submit_assignment()
+    LearnC  -->>    LearnC  : upload assignment
+    LearnC  -->>-   ClassUI : done
+    ClassUI -->>-   User    : done

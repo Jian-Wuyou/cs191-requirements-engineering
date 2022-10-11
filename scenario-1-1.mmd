@@ -1,0 +1,17 @@
+sequenceDiagram
+    %% Scenario 1 - User creates an account on the application
+    autonumber
+    actor User
+    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
+    User    ->>+    LoginUI : register()
+    LoginUI ->>+    UserC   : register()
+    UserC   ->>+    DataC   : add_profile()
+    DataC   -->     Profile : new Profile()
+    DataC   -->     Data    : add credentials
+    DataC   -->>-   UserC   : return Profile
+    UserC   -->>-   LoginUI : resolve login
+    LoginUI -->>-   User    : redirect to /dashboard

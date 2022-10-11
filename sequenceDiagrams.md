@@ -5,11 +5,11 @@
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as <<boundary>><br>LoginUI
-    participant UserC as <<control>><br>UserController
-    participant DataC as <<control>><br>DatabaseController
-    participant Data as <<entity>><br>Database
-    participant Profile as <<entity>><br>Profile
+    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
     User    ->>+    LoginUI : register()
     LoginUI ->>+    UserC   : register()
     UserC   ->>+    DataC   : add_profile()
@@ -26,11 +26,11 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as <<boundary>><br>LoginUI
-    participant UserC as <<control>><br>UserController
-    participant DataC as <<control>><br>DatabaseController
-    participant Data as <<entity>><br>Database
-    participant Profile as <<entity>><br>Profile
+    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     UserC   ->>+    UserC   : build_user_credentials()
@@ -49,10 +49,10 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as <<boundary>><br>LoginUI
-    participant UserC as <<control>><br>UserController
-    participant DataC as <<control>><br>DatabaseController
-    participant Data as <<entity>><br>Database
+    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     UserC   ->>+    UserC   : build_user_profile()
@@ -70,10 +70,10 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant DashUI as <<boundary>><br>DashboardUI
-    participant UserC as <<control>><br>UserController
-    participant DataC as <<control>><br>DatabaseController
-    participant Data as <<entity>><br>Database
+    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
     User    ->>+    DashUI  : link_account()
     DashUI  ->>+    UserC   : link_account()
     UserC   ->>+    DataC   : update_profile()
@@ -83,3 +83,45 @@ sequenceDiagram
     UserC   -->>-   DashUI  : done
     DashUI  -->>-   User    : reload dashboard
 ```
+
+### Scenario 5 - User unlinks external service provider
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
+    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
+    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
+    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    User    ->>+    DashUI  : unlink_account()
+    DashUI  ->>+    UserC   : unlink_account()
+    UserC   ->>+    DataC   : update_profile()
+    DataC   -->     Data    : match credentials
+    DataC   -->     Data    : update profile
+    DataC   -->>-   UserC   : return Profile
+    UserC   -->>-   DashUI  : done
+    DashUI  -->>-   User    : reload dashboard
+```
+### Scenario 6 - User submits requirements via the application
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
+    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
+    User    ->>+    ClassUI : submit_assignment()
+    ClassUI -->>    User    : request confirmation
+    User    -->>    ClassUI : confirm
+    ClassUI ->>+    LearnC  : submit_assignment()
+    LearnC  -->>    LearnC  : upload assignment
+    LearnC  -->>-   ClassUI : done
+    ClassUI -->>-   User    : done
+```
+
+# View Requirements
+
+### Scenario 1 - User accessed dashboard view
+### Scenario 2 - User accessed calendar view
+### Scenario 3 - User accessed class card view

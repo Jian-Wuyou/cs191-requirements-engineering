@@ -1,0 +1,6 @@
+{
+    "mermaid-export.css": "sequenceDiagram.css",
+    "mermaid-editor.preview.defaultMermaidConfig": "mermaid-config.json",
+    "mermaid-editor.generate.type": "png",
+    "mermaid-editor.generate.outputPath": "${fileWorkspaceFolder}/output"
+}
