@@ -1,3 +1,3 @@
 Developed in VSCode with [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 
-![Example](https://imgur.com/a/tT22m6S)
+![Example](https://i.imgur.com/aTW5ND8.png)

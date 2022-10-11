@@ -12,10 +12,10 @@ sequenceDiagram
     participant Profile as <<entity>><br>Profile
     User    ->>+    LoginUI : register()
     LoginUI ->>+    UserC   : register()
-    UserC   ->>+    DataC  : add_profile()
-    DataC  -->     Profile : new Profile()
-    DataC  -->     Data: add credentials
-    DataC  -->>-   UserC   : return Profile
+    UserC   ->>+    DataC   : add_profile()
+    DataC   -->     Profile : new Profile()
+    DataC   -->     Data    : add credentials
+    DataC   -->>-   UserC   : return Profile
     UserC   -->>-   LoginUI : resolve login
     LoginUI -->>-   User    : redirect to /dashboard
 ```
@@ -34,10 +34,10 @@ sequenceDiagram
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     UserC   ->>+    UserC   : build_user_credentials()
-    UserC   ->>+    DataC  : match_profile()
-    DataC  -->     Data: match credentials
-    DataC  -->     Profile : new Profile(...)
-    DataC  -->>-   UserC   : return Profile
+    UserC   ->>+    DataC   : match_profile()
+    DataC   -->     Data    : match credentials
+    DataC   -->     Profile : new Profile(...)
+    DataC   -->>-   UserC   : return Profile
     UserC   -->>-   UserC   : return Profile
     UserC   -->>-   LoginUI : resolve login
     LoginUI -->>-   User    : redirect to /dashboard
@@ -56,9 +56,9 @@ sequenceDiagram
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     UserC   ->>+    UserC   : build_user_profile()
-    UserC   ->>+    DataC  : match_profile()
-    DataC  -->     Data: match credentials
-    DataC  -->>-   UserC   : return None
+    UserC   ->>+    DataC   : match_profile()
+    DataC   -->     Data    : match credentials
+    DataC   -->>-   UserC   : return None
     UserC   ->>-    UserC   : return None
     UserC   -->-    LoginUI : reject login
     LoginUI -->>-   User    : redirect to /login
