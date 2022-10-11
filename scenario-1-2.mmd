@@ -9,11 +9,12 @@ sequenceDiagram
     participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
-    UserC   ->>+    UserC   : build_user_credentials()
+    Note over UserC         : self.build_user_credentials()
+    activate UserC
     UserC   ->>+    DataC   : match_profile()
     DataC   -->     Data    : match credentials
     DataC   -->     Profile : new Profile(...)
     DataC   -->>-   UserC   : return Profile
-    UserC   -->>-   UserC   : return Profile
+    deactivate UserC
     UserC   -->>-   LoginUI : resolve login
     LoginUI -->>-   User    : redirect to /dashboard

@@ -1,0 +1,21 @@
+sequenceDiagram
+    %% Scenario 3 - User accessed class card view
+    autonumber
+    actor User
+    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
+    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
+    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    User    ->>+    ClassUI : display()
+    Note over ClassUI       : self.display_deadlines()
+    activate ClassUI
+    ClassUI ->>+    LearnC  : get_deadlines()
+    LearnC  -->     LearnE  : get deadlines
+    LearnC  -->>-   ClassUI : return deadlines
+    deactivate ClassUI
+    Note over ClassUI       : self.display_classes()
+    activate ClassUI
+    ClassUI ->>+    LearnC  : get_classes()
+    LearnC  -->     LearnE  : get classes
+    LearnC  -->>-   ClassUI : return classes
+    deactivate ClassUI
+    ClassUI -->>-   User    : return classes

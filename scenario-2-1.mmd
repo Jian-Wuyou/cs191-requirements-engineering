@@ -1,0 +1,15 @@
+sequenceDiagram
+    %% Scenario 1 - User accessed dashboard view
+    autonumber
+    actor User
+    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
+    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
+    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    User    ->>+    DashUI  : display()
+    Note over DashUI        : self.display_deadlines()
+    activate DashUI
+    DashUI  ->>+    LearnC  : get_deadlines()
+    LearnC  -->     LearnE  : get deadlines
+    LearnC  -->>-   DashUI  : return deadlines
+    deactivate DashUI
+    DashUI  -->>-   User    : return dashboard

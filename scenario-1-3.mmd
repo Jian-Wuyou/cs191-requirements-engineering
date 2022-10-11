@@ -8,10 +8,11 @@ sequenceDiagram
     participant Data as &lt;&lt;entity&gt;&gt;<br>Database
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
-    UserC   ->>+    UserC   : build_user_profile()
+    Note over UserC         : self.build_user_profile()
+    activate UserC
     UserC   ->>+    DataC   : match_profile()
     DataC   -->     Data    : match credentials
     DataC   -->>-   UserC   : return None
-    UserC   ->>-    UserC   : return None
-    UserC   -->-    LoginUI : reject login
+    deactivate UserC
+    UserC   -->>-   LoginUI : reject login
     LoginUI -->>-   User    : redirect to /login

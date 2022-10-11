@@ -4,10 +4,11 @@ sequenceDiagram
     actor User
     participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
     participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
+    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
     User    ->>+    ClassUI : submit_assignment()
     ClassUI -->>    User    : request confirmation
     User    -->>    ClassUI : confirm
     ClassUI ->>+    LearnC  : submit_assignment()
-    LearnC  -->>    LearnC  : upload assignment
+    LearnC  -->     LearnE  : upload assignment
     LearnC  -->>-   ClassUI : done
     ClassUI -->>-   User    : done
