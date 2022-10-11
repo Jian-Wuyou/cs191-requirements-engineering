@@ -83,3 +83,23 @@ sequenceDiagram
     UserC   -->>-   DashUI  : done
     DashUI  -->>-   User    : reload dashboard
 ```
+
+### Scenario 5 - User unlinks external services provider to the application
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant DashUI as <<boundary>><br>DashboardUI
+    participant UserC as <<control>><br>UserController
+    participant DataC as <<control>><br>DatabaseController
+    participant Data as <<entity>><br>Database
+    User    ->>+    DashUI  : unlink_account()
+    DashUI  ->>+    UserC   : unlink_account()
+    UserC   ->>+    DataC   : update_profile()
+    DataC   -->     Data    : match credentials
+    DataC   -->     Data    : update profile
+    DataC   -->>-   UserC   : return Profile
+    UserC   -->>-   DashUI  : done
+    DashUI  -->>-   User    : reload dashboard
+```
