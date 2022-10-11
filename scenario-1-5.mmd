@@ -2,10 +2,10 @@ sequenceDiagram
     %% Scenario 5 - User unlinks external service provider
     autonumber
     actor User
-    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant DashUI as #lt;#lt;boundary#gt;#gt;<br>DashboardUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
     User    ->>+    DashUI  : unlink_account()
     DashUI  ->>+    UserC   : unlink_account()
     UserC   ->>+    DataC   : update_profile()

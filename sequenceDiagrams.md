@@ -5,11 +5,11 @@
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
-    participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
+    participant LoginUI as #lt;#lt;boundary#gt;#gt;<br>LoginUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
+    participant Profile as #lt;#lt;entity#gt;#gt;<br>Profile
     User    ->>+    LoginUI : register()
     LoginUI ->>+    UserC   : register()
     UserC   ->>+    DataC   : add_profile()
@@ -25,11 +25,11 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
-    participant Profile as &lt;&lt;entity&gt;&gt;<br>Profile
+    participant LoginUI as #lt;#lt;boundary#gt;#gt;<br>LoginUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
+    participant Profile as #lt;#lt;entity#gt;#gt;<br>Profile
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     Note over UserC         : self.build_user_credentials()
@@ -48,10 +48,10 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant LoginUI as #lt;#lt;boundary#gt;#gt;<br>LoginUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     Note over UserC         : self.build_user_profile()
@@ -69,10 +69,10 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant DashUI as #lt;#lt;boundary#gt;#gt;<br>DashboardUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
     User    ->>+    DashUI  : link_account()
     DashUI  ->>+    UserC   : link_account()
     UserC   ->>+    DataC   : update_profile()
@@ -88,10 +88,10 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant DashUI as #lt;#lt;boundary#gt;#gt;<br>DashboardUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
     User    ->>+    DashUI  : unlink_account()
     DashUI  ->>+    UserC   : unlink_account()
     UserC   ->>+    DataC   : update_profile()
@@ -107,9 +107,9 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant ClassUI as #lt;#lt;boundary#gt;#gt;<br>ClassesUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    ClassUI : submit_assignment()
     ClassUI -->>    User    : request confirmation
     User    -->>    ClassUI : confirm
@@ -125,9 +125,9 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant DashUI as &lt;&lt;boundary&gt;&gt;<br>DashboardUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant DashUI as #lt;#lt;boundary#gt;#gt;<br>DashboardUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    DashUI  : display()
     Note over DashUI        : self.display_deadlines()
     activate DashUI
@@ -142,9 +142,9 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant TimeUI as &lt;&lt;boundary&gt;&gt;<br>CalendarUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant TimeUI as #lt;#lt;boundary#gt;#gt;<br>CalendarUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    TimeUI  : display()
     Note over TimeUI        : self.display_deadlines()
     activate TimeUI
@@ -159,9 +159,9 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor User
-    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant ClassUI as #lt;#lt;boundary#gt;#gt;<br>ClassesUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    ClassUI : display()
     Note over ClassUI       : self.display_deadlines()
     activate ClassUI

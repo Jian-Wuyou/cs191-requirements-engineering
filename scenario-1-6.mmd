@@ -2,9 +2,9 @@ sequenceDiagram
     %% Scenario 6 User submits requirements via the application
     autonumber
     actor User
-    participant ClassUI as &lt;&lt;boundary&gt;&gt;<br>ClassesUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant ClassUI as #lt;#lt;boundary#gt;#gt;<br>ClassesUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    ClassUI : submit_assignment()
     ClassUI -->>    User    : request confirmation
     User    -->>    ClassUI : confirm

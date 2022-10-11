@@ -2,9 +2,9 @@ sequenceDiagram
     %% Scenario 2 - User accessed calendar view
     autonumber
     actor User
-    participant TimeUI as &lt;&lt;boundary&gt;&gt;<br>CalendarUI
-    participant LearnC as &lt;&lt;control&gt;&gt;<br>LearningEnvController
-    participant LearnE as &lt;&lt;entity&gt;&gt;<br>LearningEnvClass
+    participant TimeUI as #lt;#lt;boundary#gt;#gt;<br>CalendarUI
+    participant LearnC as #lt;#lt;control#gt;#gt;<br>LearningEnvController
+    participant LearnE as #lt;#lt;entity#gt;#gt;<br>LearningEnvClass
     User    ->>+    TimeUI  : display()
     Note over TimeUI        : self.display_deadlines()
     activate TimeUI

@@ -2,10 +2,10 @@ sequenceDiagram
     %% Scenario 3 - User logs in to the application (incorrect credentials)
     autonumber
     actor User
-    participant LoginUI as &lt;&lt;boundary&gt;&gt;<br>LoginUI
-    participant UserC as &lt;&lt;control&gt;&gt;<br>UserController
-    participant DataC as &lt;&lt;control&gt;&gt;<br>DatabaseController
-    participant Data as &lt;&lt;entity&gt;&gt;<br>Database
+    participant LoginUI as #lt;#lt;boundary#gt;#gt;<br>LoginUI
+    participant UserC as #lt;#lt;control#gt;#gt;<br>UserController
+    participant DataC as #lt;#lt;control#gt;#gt;<br>DatabaseController
+    participant Data as #lt;#lt;entity#gt;#gt;<br>Database
     User    ->>+    LoginUI : login()
     LoginUI ->>+    UserC   : login()
     Note over UserC         : self.build_user_profile()
