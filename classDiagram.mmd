@@ -1,19 +1,21 @@
 classDiagram
-    direction RL
+    direction LR
     DisplayUI <|.. ClassesUI
     DisplayUI <|.. DashboardUI
     DisplayUI <|.. CalendarUI
 
     DatabaseController "1" -- "1" UserController
+    DatabaseController "1" -- "1" Database
+    Database "1" o-- "1..*" Profile
+    Profile "1" o-- "1..*" LearningEnvCredentials 
 
     UserController "1" -- "1" LoginUI
 
     LearningEnvController "1" -- "1" ClassesUI
     LearningEnvController "1" -- "1" DashboardUI
     LearningEnvController "1" -- "1" CalendarUI
-
-    Database "1" o-- "1..*" Profile
-    Profile "1" o-- "1..*" LearningEnvCredentials 
+    LearningEnvController "1" -- "1" UserController
+    LearningEnvController "1" *-- "1..*" LearningEnvClass
 
 %% Entities
     %% interface
